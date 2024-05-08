@@ -1,0 +1,62 @@
+{
+  "name": "gesturerecognitionsimulator",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "test": "npx globstar -- npx tsx --test --test-reporter spec \"!(dist|node_modules)/**/*.spec.ts\"",
+    "prepare": "husky && check-node-version --package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lenakh97/gesturerecognitionsimulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@aws-sdk/client-iam": "3.565.0",
+    "@bifravst/aws-cdk-lambda-helpers": "1.7.7",
+    "@bifravst/ci": "2.0.1",
+    "@bifravst/eslint-config-typescript": "6.0.25",
+    "@bifravst/prettier-config": "1.0.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@types/node": "20.12.7",
+    "aws-cdk-lib": "2.139.1",
+    "commitlint": "19.3.0",
+    "husky": "9.0.11",
+    "mqtt": "5.5.5",
+    "tsx": "4.7.3"
+  },
+  "lint-staged": {
+    "*.{md,json,yaml,yml}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint"
+    ]
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=9"
+  },
+  "release": {
+    "branches": [
+      "saga"
+    ],
+    "remoteTags": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/github",
+        {
+          "successComment": false,
+          "failTitle": false
+        }
+      ]
+    ]
+  },
+  "prettier": "@bifravst/prettier-config"
+}
