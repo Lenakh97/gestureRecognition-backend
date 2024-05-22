@@ -25,7 +25,7 @@
     "aws-cdk-lib": "2.139.1",
     "commitlint": "19.3.0",
     "husky": "9.0.11",
-    "mqtt": "5.5.5",
+    "mqtt": "5.6.0",
     "tsx": "4.7.3"
   },
   "lint-staged": {
@@ -58,5 +58,8 @@
       ]
     ]
   },
-  "prettier": "@bifravst/prettier-config"
+  "prettier": "@bifravst/prettier-config",
+  "dependencies": {
+    "@nordicsemiconductor/from-env": "3.0.1"
+  }
 }

@@ -29,10 +29,10 @@ export class BackendStack extends Stack {
 	) {
 		super(parent, STACK_NAME)
 
-		const getWaterLevels = new PackedLambdaFn(
+		const simulateGesture = new PackedLambdaFn(
 			this,
-			'getWaterLevels',
-			lambdaSources.waterLevels,
+			'simulateGesture',
+			lambdaSources.simulateGesture,
 			{
 				timeout: Duration.seconds(60),
 				memorySize: 1024,
@@ -43,7 +43,7 @@ export class BackendStack extends Stack {
 			description: `Rule to schedule waterLevel lambda invocations`,
 			schedule: Events.Schedule.rate(Duration.hours(1)),
 		})
-		rule.addTarget(new EventTargets.LambdaFunction(getWaterLevels.fn))
+		rule.addTarget(new EventTargets.LambdaFunction(simulateGesture.fn))
 
 		const cd = new ContinuousDeployment(this, {
 			repository,

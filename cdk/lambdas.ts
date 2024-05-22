@@ -4,11 +4,11 @@ import {
 } from '@bifravst/aws-cdk-lambda-helpers'
 
 export type BackendLambdas = {
-	waterLevels: PackedLambda
+	simulateGesture: PackedLambda
 }
 
 const pack = async (id: string) => packLambdaFromPath(id, `lambda/${id}.ts`)
 
 export const packBackendLambdas = async (): Promise<BackendLambdas> => ({
-	waterLevels: await pack('waterLevels'),
+	simulateGesture: await pack('simulateGesture'),
 })
